@@ -14,7 +14,14 @@ export class SearchBoxComponent {
   }
 
   printDate() {
-    this.nasaService.buscarNeo(this.selectedDate);
-  }
+      if (!this.selectedDate) {
+        alert('Por favor selecciona una fecha primero');
+        return;
+      }
+      
+      // Servicio con la fecha capturada por el ngModel
+      console.log('📅 Fecha capturada en el input:', this.selectedDate);
+      this.nasaService.buscarNeo(this.selectedDate);
+    }
 
 }
